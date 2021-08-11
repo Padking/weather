@@ -29,6 +29,11 @@ def get_weather_forecast_info(city: str, payload: URLOptions):
     return info
 
 
-for city in cities:
-    info = get_weather_forecast_info(city, payload)
-    print(info)
+def main():
+    for city in cities:
+        info = get_weather_forecast_info(city, payload)
+        print(info)
+
+
+if __name__ == "__main__":
+    main()
