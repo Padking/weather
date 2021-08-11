@@ -6,7 +6,7 @@ import requests
 URLOptions = Dict[str, str]
 
 cities = ["Лондон", "Шереметьево", "Череповец"]
-payload = {"mnTqu": "", "lang": "ru"}
+payload = {"mnTq": "", "lang": "ru"}
 
 
 def get_weather_forecast_info(city: str, payload: URLOptions):
@@ -19,8 +19,8 @@ def get_weather_forecast_info(city: str, payload: URLOptions):
 
     """
 
-    url_template = "http://wttr.in/{}?{}"
-    url = url_template.format(city, payload)
+    url_template = "http://wttr.in/{}"
+    url = url_template.format(city)
 
     response = requests.get(url, params=payload)
     response.raise_for_status()
