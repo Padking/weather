@@ -5,34 +5,38 @@ import requests
 
 URLOptions = Dict[str, str]
 
-cities = ["Лондон", "Шереметьево", "Череповец"]
+locations = ["Лондон", "Шереметьево", "Череповец"]
 payload = {"mnTq": "", "lang": "ru"}
 
 
-def get_weather_forecast_info(city: str, payload: URLOptions):
-    """
-    Выполняет http-з для получения информации
-    о погоде в конкретном городе с учётом опций (согласно http://wttr.in)
+def get_weather_forecast(location: str, payload: URLOptions):
+    """Получает сведения о погоде.
+
+    Выполняет http-запрос для получения информации
+    о погоде в конкретном месте пространства
+    с учётом опций (согласно http://wttr.in)
 
     :param location: местоположение
     :param payload: опции
-
+    :return: прогноз погоды
     """
 
     url_template = "http://wttr.in/{}"
-    url = url_template.format(city)
+    url = url_template.format(location)
 
     response = requests.get(url, params=payload)
     response.raise_for_status()
 
-    info = response.text
-    return info
+    weather_forecast = response.text
+    return weather_forecast
 
 
 def main():
-    for city in cities:
-        info = get_weather_forecast_info(city, payload)
-        print(info)
+    """Выполняет основную логику модуля."""
+
+    for location in locations:
+        weather_forecast = get_weather_forecast(location, payload)
+        print(weather_forecast)
 
 
 if __name__ == "__main__":

@@ -150,3 +150,6 @@ bar.py
 baz.py
 foo.py
 proba.py
+
+# Linter's settings
+.flake8
