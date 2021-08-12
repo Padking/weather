@@ -5,9 +5,6 @@ import requests
 
 URLOPTIONS = Dict[str, str]
 
-locations = ["Лондон", "Шереметьево", "Череповец"]
-payload = {"mnTq": "", "lang": "ru"}
-
 
 def get_weather_forecast(location: str, payload: URLOPTIONS):
     """Получает сведения о погоде.
@@ -34,6 +31,8 @@ def get_weather_forecast(location: str, payload: URLOPTIONS):
 def main():
     """Выполняет основную логику модуля."""
 
+    locations = ["Лондон", "Шереметьево", "Череповец"]
+    payload = {"mnTq": "", "lang": "ru"}
     for location in locations:
         weather_forecast = get_weather_forecast(location, payload)
         print(weather_forecast)
