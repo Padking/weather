@@ -3,10 +3,10 @@ from typing import Dict
 import requests
 
 
-URLOPTIONS = Dict[str, str]
+URL_OPTIONS = Dict[str, str]
 
 
-def get_weather_forecast(location: str, payload: URLOPTIONS):
+def get_weather_forecast(location: str, payload: URL_OPTIONS):
     """Получает сведения о погоде.
 
     Выполняет http-запрос для получения информации
